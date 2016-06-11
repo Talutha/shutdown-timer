@@ -1,5 +1,14 @@
 // Initial timer length in seconds
-var timerCount = 15;
+var timerCount = 15,
+    remote = require('electron').remote,
+    arguments = remote.getGlobal('sharedObject').prop1;
+
+// debug mode ensures that computer doesnt shut down while testing
+// npm start --debug
+if (arguments[2] == '--debug') {
+  console.log('Debug mode enabled');
+  var debug = true;
+}
 
 // Timer constructor
 var TimerFunc = function() {
@@ -7,6 +16,10 @@ var TimerFunc = function() {
     this.timerID = document.getElementById('timer');
     // Disply initial timer length, currently in seconds
     this.timerID.innerHTML = timerCount;
+
+    if (debug) {
+      document.getElementById('titleHeader').innerHTML += '**DEBUG**';
+    };
   };
 };
 
@@ -33,5 +46,9 @@ TimerFunc.prototype.endTimer = function() {
 var timer = new TimerFunc();
 
 function shutdown() {
-  alert('Shutting it down!');
+  if (debug) {
+    alert('Debug: Shutting it down!');
+  } else {
+
+  };
 };
