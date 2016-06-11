@@ -1,16 +1,16 @@
+// Initial timer length in seconds
 var timerCount = 15;
 
-window.onload = function() {
-  var timerID = document.getElementById('timer');
-  timerID.innerHTML += timerCount;
-};
-
+// Timer constructor
 var TimerFunc = function() {
   window.onload = function() {
     this.timerID = document.getElementById('timer');
+    // Disply initial timer length, currently in seconds
+    this.timerID.innerHTML = timerCount;
   };
 };
 
+// Function to start countdown, decrements timerCount in seconds
 TimerFunc.prototype.startTimer = function() {
   this.countdown = window.setInterval(function() {
     timerCount--;
@@ -18,20 +18,9 @@ TimerFunc.prototype.startTimer = function() {
   }, 1000);
 };
 
+// Function to manually stop timer from counting
 TimerFunc.prototype.endTimer = function() {
   clearInterval(this.countdown);
 };
 
 var timer = new TimerFunc();
-
-function startTimer() {
-  var timerID = document.getElementById('timer');
-  window.setInterval(function() {
-    timerCount--;
-    timerID.innerHTML = timerCount;
-  }, 1000);
-};
-
-function endTimer() {
-
-};
