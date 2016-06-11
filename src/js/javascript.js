@@ -49,6 +49,9 @@ function shutdown() {
   if (debug) {
     alert('Debug: Shutting it down!');
   } else {
+    var exec = require('child-process').exec;
+    var cmd = 'shutdown -t 15 -s';
 
+    exec(cmd, function(error, stdout, stderr) {});
   };
 };
