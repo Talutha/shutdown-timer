@@ -12,10 +12,17 @@ var TimerFunc = function() {
 
 // Function to start countdown, decrements timerCount in seconds
 TimerFunc.prototype.startTimer = function() {
-  this.countdown = window.setInterval(function() {
-    timerCount--;
-    this.timerID.innerHTML = timerCount;
-  }, 1000);
+  var self = this;
+  if (timerCount > 0) {
+    self.countdown = window.setInterval(function() {
+      timerCount--;
+      this.timerID.innerHTML = timerCount;
+      if (timerCount <= 0) {
+        self.endTimer();
+        shutdown();
+      }
+    }, 1000);
+  };
 };
 
 // Function to manually stop timer from counting
@@ -24,3 +31,7 @@ TimerFunc.prototype.endTimer = function() {
 };
 
 var timer = new TimerFunc();
+
+function shutdown() {
+  alert('Shutting it down!');
+};
