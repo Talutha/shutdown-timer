@@ -49,8 +49,16 @@ function shutdown() {
   if (debug) {
     alert('Debug: Shutting it down!');
   } else {
+    var plat = process.platform;
     var exec = require('child-process').exec;
-    var cmd = 'shutdown -t 15 -s';
+    var cmd = '';
+    if (plat === 'win32') {
+      cmd = 'shutdown -t 15 -s';
+    } else if (plat === 'darwin') {
+      cmd = '';//OSX shutdown command;
+    } else {
+      cmd = '';//linux shutdown command;
+    };
 
     exec(cmd, function(error, stdout, stderr) {});
   };
