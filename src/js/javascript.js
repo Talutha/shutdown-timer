@@ -12,10 +12,13 @@ if (arguments[2] == '--debug') {
 
 // Timer constructor
 var TimerFunc = function() {
+  var self = this;
+  this.numeral = require('numeral');
+  this.timerRunning = false;
   window.onload = function() {
     this.timerID = document.getElementById('timer');
     // Disply initial timer length, currently in seconds
-    this.timerID.innerHTML = timerCount;
+    this.timerID.innerHTML = self.numeral(timerCount).format('00:00:00');
 
     if (debug) {
       // document.getElementById('titleHeader').innerHTML += '**DEBUG**';
@@ -26,13 +29,16 @@ var TimerFunc = function() {
 // Function to start countdown, decrements timerCount in seconds
 TimerFunc.prototype.startTimer = function() {
   var self = this;
-  if (timerCount > 0) {
+  timerCount = self.numeral().unformat(document.getElementById('timeForm').value);
+  if (timerCount > 0 && !self.timerRunning) {
+    self.timerRunning = true;
     self.countdown = window.setInterval(function() {
       timerCount--;
-      this.timerID.innerHTML = timerCount;
+      this.timerID.innerHTML = self.numeral(timerCount).format('00:00:00');
       if (timerCount <= 0) {
         self.endTimer();
         shutdown();
+        self.timerRunning = false;
       }
     }, 1000);
   };
