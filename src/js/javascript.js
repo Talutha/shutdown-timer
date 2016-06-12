@@ -45,6 +45,10 @@ TimerFunc.prototype.endTimer = function() {
 
 var timer = new TimerFunc();
 
+function alterTime(time) {
+  document.getElementById('timeForm').value = time;
+};
+
 function shutdown() {
   if (debug) {
     alert('Debug: Shutting it down!');

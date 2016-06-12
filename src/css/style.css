@@ -12,3 +12,12 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.timeField {
+  display: flex;
+  justify-content: center;
+}
+
+.timeForm {
+  text-align: center;
+}
