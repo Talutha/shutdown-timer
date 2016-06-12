@@ -18,7 +18,7 @@ var TimerFunc = function() {
     this.timerID.innerHTML = timerCount;
 
     if (debug) {
-      document.getElementById('titleHeader').innerHTML += '**DEBUG**';
+      // document.getElementById('titleHeader').innerHTML += '**DEBUG**';
     };
   };
 };
