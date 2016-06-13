@@ -1,23 +1,39 @@
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: white;
 }
 
-.timer {
-  font-size: 4em;
+.flexContainer{
+  height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
 
-.buttons {
-  display: flex;
+.timer {
+  font-size: 4em;
   justify-content: center;
+  align-self: center;
+}
+
+.timeButtons {
+  order: -1;
+}
+
+.funcButtons {
+
 }
 
 .timeField {
-  display: flex;
   justify-content: center;
 }
 
 .timeForm {
   text-align: center;
+  border: none;
+  background: transparent;
 }

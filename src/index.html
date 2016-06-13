@@ -7,23 +7,24 @@
     <title>Shutdown Timer App</title>
   </head>
   <body>
-    <div class='timer' id='timer'></div>
-    <div class='buttons timeButtons'>
-      <button type='button' onClick='alterTime("00:05:00")'>5 Minutes</button>
-      <button type='button' onClick='alterTime("00:10:00")'>10 Minutes</button>
-      <button type='button' onClick='alterTime("00:20:00")'>20 Minutes</button>
-      <button type='button' onClick='alterTime("00:30:00")'>30 Minutes</button>
-      <button type='button' onClick='alterTime("01:00:00")'>60 Minutes</button>
+    <div class='flexContainer'>
+      <div class='timer' id='timer'></div>
+      <div class='buttons timeButtons'>
+        <button type='button' onClick='alterTime("00:05:00")'>5 Minutes</button>
+        <button type='button' onClick='alterTime("00:10:00")'>10 Minutes</button>
+        <button type='button' onClick='alterTime("00:20:00")'>20 Minutes</button>
+        <button type='button' onClick='alterTime("00:30:00")'>30 Minutes</button>
+        <button type='button' onClick='alterTime("01:00:00")'>60 Minutes</button>
+      </div>
+      <div class='timeField'>
+        <form>
+          <input type='text' value='hh:mm:ss' class='timeForm' id='timeForm'>
+        </form>
+      </div>
+      <div class='buttons funcButtons'>
+        <button type='button' onClick='timer.startTimer()'>Start Timer</button>
+        <button type='button' onClick='timer.endTimer()'>End Timer</button>
+      </div>
     </div>
-    <div class='timeField'>
-      <form>
-        <input type='text' value='hh:mm:ss' class='timeForm' id='timeForm'>
-      </form>
-    </div>
-    <div class='buttons funcButtons'>
-      <button type='button' onClick='timer.startTimer()'>Start Timer</button>
-      <button type='button' onClick='timer.endTimer()'>End Timer</button>
-    </div>
-
   </body>
 </html>
