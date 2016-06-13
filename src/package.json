@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Talutha/shutdown-timer#readme",
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "electron-prebuilt": "^1.2.2",
     "numeral": "^1.5.3"
   }

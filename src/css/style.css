@@ -4,6 +4,7 @@ html, body {
 
 body {
   background-color: white;
+  overflow: hidden;
 }
 
 .flexContainer{
@@ -24,6 +25,14 @@ body {
 
 .timeField {
   justify-content: center;
+}
+
+.pauseOverlay {
+  width: 100%;
+  transform: translateY(150%);
+  position: absolute;
+  text-align: center;
+  z-index: 10;
 }
 
 .timeForm {
