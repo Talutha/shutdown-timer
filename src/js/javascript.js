@@ -46,25 +46,40 @@ TimerFunc.prototype.startTimer = function() {
   };
 };
 
-TimerFunc.prototype.hideButtons = function() {
-  var hideThis = document.getElementsByClassName('buttons');
-  var disableButtons = document.getElementsByClassName('pButton');
-
-  for (var i=0; i < hideThis.length; i++) {
-    hideThis[i].style.transition = 'opacity 3s ease-in-out';
-    hideThis[i].style.opacity = '0'
-  };
-
-  for (var i=0; i < disableButtons.length; i++) {
-    console.log(disableButtons[i]);
-    disableButtons[i].disabled = true;
-  }
-};
-
 // Function to manually stop timer from counting
 TimerFunc.prototype.endTimer = function() {
+  this.showButtons();
   clearInterval(this.countdown);
   this.timerRunning = false;
+};
+
+TimerFunc.prototype.showButtons = function() {
+  var enableButtons = document.getElementsByClassName('pButton');
+  var pauseOverlay = document.getElementById('pauseOverlay');
+
+  for (var i = 0; i < enableButtons.length; i++) {
+    enableButtons[i].style.opacity = '1';
+    enableButtons[i].disabled = false;
+  }
+
+  pauseOverlay.style.opacity = '0';
+  pauseOverlay.style.display = 'none';
+};
+
+TimerFunc.prototype.hideButtons = function() {
+  var disableButtons = document.getElementsByClassName('pButton');
+  var pauseOverlay = document.getElementById('pauseOverlay');
+
+  for (var i=0; i < disableButtons.length; i++) {
+    //hideThis[i].style.transition = 'opacity 3s ease-in-out';
+    disableButtons[i].style.opacity = '0';
+    disableButtons[i].disabled = true;
+  };
+
+  pauseOverlay.style.display = 'block';
+  pauseOverlay.style.transition = 'opacity 3s ease-in-out';
+  pauseOverlay.style.opacity = '1';
+
 };
 
 var timer = new TimerFunc();

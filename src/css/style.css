@@ -15,6 +15,9 @@ body {
   flex-direction: column;
 }
 
+.pButton {
+  transition: opacity 3s ease-in-out;
+}
 .timeButtons {
   order: -1;
 }
@@ -28,11 +31,18 @@ body {
 }
 
 .pauseOverlay {
+  display: none;
+  opacity: 0;
   width: 100%;
-  transform: translateY(150%);
+  transform: translateY(85%);
   position: absolute;
   text-align: center;
   z-index: 10;
+  visibility: hidden;
+}
+
+.flexContainer:hover .pauseOverlay {
+  visibility: visible;
 }
 
 .timeForm {
