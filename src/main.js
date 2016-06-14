@@ -13,7 +13,10 @@ global.sharedObject = {prop1: process.argv};
 
 function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600});
+  win = new BrowserWindow({width: 500, height: 300, resizable: false});
+
+  // do not load the default menu bar.
+  win.setMenu(null);
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);
