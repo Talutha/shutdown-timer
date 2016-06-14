@@ -56,6 +56,9 @@ TimerFunc.prototype.endTimer = function() {
 TimerFunc.prototype.showButtons = function() {
   var enableButtons = document.getElementsByClassName('pButton');
   var pauseOverlay = document.getElementById('pauseOverlay');
+  var timer = document.getElementById('timeForm');
+
+  timer.readOnly = false;
 
   for (var i = 0; i < enableButtons.length; i++) {
     enableButtons[i].style.opacity = '1';
@@ -69,6 +72,9 @@ TimerFunc.prototype.showButtons = function() {
 TimerFunc.prototype.hideButtons = function() {
   var disableButtons = document.getElementsByClassName('pButton');
   var pauseOverlay = document.getElementById('pauseOverlay');
+  var timer = document.getElementById('timeForm');
+
+  timer.readOnly = true;
 
   for (var i=0; i < disableButtons.length; i++) {
     //hideThis[i].style.transition = 'opacity 3s ease-in-out';
