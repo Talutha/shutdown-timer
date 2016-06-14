@@ -16,7 +16,7 @@ function createWindow() {
   win = new BrowserWindow({width: 500, height: 300, resizable: false});
 
   // do not load the default menu bar.
-  win.setMenu(null);
+  //win.setMenu(null);
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);

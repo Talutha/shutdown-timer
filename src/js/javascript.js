@@ -96,7 +96,7 @@ function alterTime(time) {
 
 function shutdown() {
   var plat = process.platform;
-  var exec = require('child-process').exec;
+  var exec = require('child_process').exec;
   var cmd = '';
   if (plat === 'win32') {
     cmd = 'shutdown -t 15 -s';
