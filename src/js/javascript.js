@@ -32,6 +32,7 @@ TimerFunc.prototype.startTimer = function() {
   var self = this;
   timerCount = self.numeral().unformat(document.getElementById('timeForm').value);
   if (timerCount > 0 && !self.timerRunning) {
+    changeBGColor(timerCount);
     self.hideButtons();
     self.timerRunning = true;
     self.countdown = window.setInterval(function() {
@@ -89,6 +90,32 @@ TimerFunc.prototype.hideButtons = function() {
 };
 
 var timer = new TimerFunc();
+
+function changeBGColor(time) {
+  var fiveMin = 60 * 5;
+  var oneMin = 60;
+  var body = document.body.style;
+  if (time > fiveMin) {
+    body.transition = 'background-color 5s ease-in-out';
+    body.backgroundColor = '#27e833';
+    timeRemaining = (time - fiveMin - 5).toString();
+    document.body.addEventListener('transitionend', function() {
+      body.transition = 'background-color ' + timeRemaining + 's ease-in-out';
+      body.backgroundColor = 'yellow';
+      timeRemaining = (fiveMin - oneMin - 5).toString();
+      document.body.addEventListener('transitionend', function() {
+        body.transition = 'background-color ' + timeRemaining + 's ease-in-out';
+        body.backgroundColor = 'red';
+      }, false);
+    }, false);
+  } else if (time >= oneMin && time <= fiveMin) {
+    // Yellow background
+  } else if (time < oneMin) {
+    // Red background
+  } else {
+    alert('You have broken the properties of TIME!');
+  };
+};
 
 function alterTime(time) {
   document.getElementById('timeForm').value = time;
